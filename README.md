@@ -10,9 +10,9 @@
 # Routes
 #### METHOD: GET
 - endpoint: /users/login?user_name=<username>&password=<password>
-query params: username, password
-description: endpoint to log in request user info
-returns data for user
+- query params: username, password
+- description: endpoint to log in request user info
+- returns data for user
   
 #### METHOD: GET
 - endpoint: /employees
@@ -22,7 +22,7 @@ returns data for user
 - /employees/<employee_id>/reimbursements
 - returns: search an employee by id
 
-METHOD: GET
+#### METHOD: GET
 - /reimbursements
 - returns: all reimbursements
 

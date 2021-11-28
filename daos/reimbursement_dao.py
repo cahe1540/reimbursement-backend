@@ -8,11 +8,11 @@ class ReimbursementDAO(ABC):
         pass
 
     @abstractmethod
-    def get_all_reimbursements(self) -> list[Reimbursement]:
+    def get_all_reimbursements(self):
         pass
 
     @abstractmethod
-    def get_reimbursements_by_employee_id(self, employee_id) -> list[Reimbursement]:
+    def get_reimbursements_by_employee_id(self, employee_id):
         pass
 
     @abstractmethod

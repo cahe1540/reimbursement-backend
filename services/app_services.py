@@ -10,11 +10,11 @@ class AppServices(ABC):
         pass
 
     @abstractmethod
-    def retrieve_all_reimbursements(self) -> list[Reimbursement]:
+    def retrieve_all_reimbursements(self):
         pass
 
     @abstractmethod
-    def retrieve_reimbursements_by_employee_id(self, employee_id: int) -> list[Reimbursement]:
+    def retrieve_reimbursements_by_employee_id(self, employee_id: int):
         pass
 
     @abstractmethod

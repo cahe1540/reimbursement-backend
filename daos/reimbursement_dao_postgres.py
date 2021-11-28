@@ -27,7 +27,7 @@ class ReimbursementDAOPostgres(ReimbursementDAO):
             connection.rollback()
             raise WorkerNotFoundException(f"Employee with id {reimbursement.employee_id} does not exist.", str(e), 404)
 
-    def get_all_reimbursements(self) -> list[Reimbursement]:
+    def get_all_reimbursements(self):
         sql = """select * from reimbursement"""
         cursor = connection.cursor()
         cursor.execute(sql)
@@ -36,7 +36,7 @@ class ReimbursementDAOPostgres(ReimbursementDAO):
         reimbursement_list = [Reimbursement(*record) for record in records]
         return reimbursement_list
 
-    def get_reimbursements_by_employee_id(self, employee_id: int) -> list[Reimbursement]:
+    def get_reimbursements_by_employee_id(self, employee_id: int):
         if not isinstance(employee_id, int):
             raise InvalidDataTypeException("employee_id must be of type int!", "", 500)
         sql = """select * from reimbursement where employee_id = %s"""

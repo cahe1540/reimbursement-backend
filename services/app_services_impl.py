@@ -22,11 +22,11 @@ class AppServicesImpl(AppServices):
         # 1) add a reimbursement, if fail, dao raises error
         return self.reimbursementDao.create_reimbursement(reimbursement)
 
-    def retrieve_all_reimbursements(self) -> list[Reimbursement]:
+    def retrieve_all_reimbursements(self):
         # 1) get all reimbursements, if fail, dao raises error
         return self.reimbursementDao.get_all_reimbursements()
 
-    def retrieve_reimbursements_by_employee_id(self, employee_id: int) -> list[Reimbursement]:
+    def retrieve_reimbursements_by_employee_id(self, employee_id: int):
         # 1) check if employee exists, if not exists, workerDao raises error
         self.workerDao.get_worker_by_id(employee_id)
 
@@ -48,7 +48,7 @@ class AppServicesImpl(AppServices):
             raise WorkerNotFoundException(f"Employee with id: {employee_id} does not exist.", "404 not found", 404)
 
         # 2) check if reimbursement belongs to employee_id
-        reimbursements: list[Reimbursement] = self.reimbursementDao.get_reimbursements_by_employee_id(employee_id)
+        reimbursements = self.reimbursementDao.get_reimbursements_by_employee_id(employee_id)
         ids = [reimbursement.employee_id for reimbursement in reimbursements]
         if employee_id not in ids:
             raise UnauthorizedActionException("You cannot delete reimbursements that don't belong to you.", "Unauthorized", 401)

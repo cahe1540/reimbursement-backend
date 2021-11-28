@@ -1,11 +1,20 @@
 # Reimbursement System Flask Server
 
+# prerequisites:
+- create a PostgreSQL database (on the cloud, locally,... etc)
+- create table worker, and reimbursements
+    - use the entities in this project for table schemas
+    
 # to run: 
 - install Python 3.7+ and pip
-- install virtaulenv with pip install venv
+- cd into directory where this project is located
+- create venv with : python3 -m venv venv  
 - run command: source ./venv/bin/activate
-- run command: pip install -r requirements
-- run app with python main.py
+- run command: pip install -r requirements.txt
+- set up environment variables for psychopg2 connection
+    -  this can be found in /utils/connection 
+- run app with: python main.py
+
 
 # Routes
 #### METHOD: GET
